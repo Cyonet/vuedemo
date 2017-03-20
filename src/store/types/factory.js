@@ -1,0 +1,12 @@
+/**
+ * Created by wenruo on 2017/1/4.
+ */
+
+export const factory = {
+  LOAD_AUTH:"LOAD_AUTH",
+  AUTH_USER:"AUTH_USER",
+  CANCEL_AUTH:"CANCEL_AUTH",
+  LOAD_AUTH_INFO:"LOAD_AUTH_INFO",
+  LOAD_FACTORY:"LOAD_FACTORY",
+  LOAD_FACTORY_ALL:"LOAD_FACTORY_ALL"
+};

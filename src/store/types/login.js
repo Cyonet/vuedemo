@@ -1,0 +1,17 @@
+/**
+ * @desc 登陆退出
+ * Created by wenruo on 2016/12/21.
+ */
+
+export const login = {
+  LOGIN: 'LOGIN',
+  LOGIN_FAIL: 'LOGIN_FAIL',
+  LOGIN_SUCCESS: 'LOGIN_SUCCESS',
+  LOGOUT: 'LOGOUT',
+  LOGOUT_FAIL: 'LOGOUT_FAIL',
+  LOGOUT_SUCCESS: 'LOGOUT_SUCCESS',
+  REST_STATE: "REST_STATE",
+  CHANGE_PSW:"CHANGE_PSW",
+  CHANGE_A_PSW:"CHANGE_A_PSW",
+  CHECK_TOKEN:"CHECK_TOKEN",
+};

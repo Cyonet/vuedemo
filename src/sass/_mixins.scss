@@ -1,0 +1,88 @@
+@mixin position($top,$right,$bottom,$left,$type:absolute) {
+  position: $type;
+  @if (type-of($top) == 'number') {
+    top: $top;
+  }
+
+  @if (type-of($right) == 'number') {
+    right: $right;
+  }
+  @if (type-of($bottom) == 'number') {
+    bottom: $bottom;
+  }
+  @if (type-of($left) == 'number') {
+    left: $left;
+  }
+}
+
+@mixin border-scale($type,$color,$radius:0,$style:solid) {
+  position: relative;
+  @if ($type == 'bottom') {
+    &:after {
+      @include position(null, 0, 0, 0);
+      border: 1px $style $color;
+      transform: scaleY(0.5);
+    }
+  } @else if ($type == 'top') {
+    &:after {
+      @include position(0, 0, null, 0);
+      border: 1px $style $color;
+      transform: scaleY(0.5);
+    }
+  } @else if ($type == 'left') {
+    &:before {
+      @include position(0, null, 0, 0);
+      border: 1px $style $color;
+      transform: scaleX(0.5);
+    }
+  } @else if ($type == 'right') {
+    &:after {
+      @include position(0, 0, 0, null);
+      border: 1px $style $color;
+      transform: scaleX(0.5);
+    }
+  } @else {
+    &:after {
+      @include position(0, 0, 0, 0);
+      width: 200%;
+      height: 200%;
+      border-radius: ¥radius*2;
+      border: 1px $style $color;
+      transform: scale(0.5);
+    }
+  }
+}
+
+@mixin position-center(){
+  position: absolute;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+}
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@function calc-em($px, $base: 16) {
+  $px: strip-unit($px);
+  $base: strip-unit($base);
+  @if ($px == 1) {
+    @return 1px;
+  }
+  @return ($px / $base) * 1em;
+}
+
+@function calc-rem($px, $base:75) {
+  $px: strip-unit($px);
+  $base: strip-unit($base);
+  @return ($px/$base)*1rem;
+}
+
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}

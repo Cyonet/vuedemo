@@ -1,0 +1,156 @@
+@import "varible";
+@import "mixins";
+.game-header{
+  padding: 16px 5px;
+  .inline-input{
+    width: 200px;
+    display: inline-block;
+    padding: 5px 0;
+  }
+}
+.game-grid{
+  padding: 5px;
+  box-shadow: inset 1px 1px 1px $border-color,inset -1px -1px 1px $border-color;
+}
+.img-preview{
+  position: relative;
+  width: 100%;
+  .over-warp{
+    display: none;
+    @include position(0,0,0,0,absolute);
+    background: rgba(0,0,0,.6);
+    transition:all 0.6s ease;
+  }
+  &:hover .over-warp{
+    display: block;
+  }
+  .btn-preview{
+    @include position-center();
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: shade(#F7BA2A,30%);
+    font-size: 16px;
+    line-height: 72px;
+    text-align: center;
+    color: #F9FAFC;
+  }
+}
+.game-item{
+  width: 25%;
+  display: inline-block;
+  padding: 5px;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 18px;
+  transition: all 200ms ease;
+  img{
+    width: 100%;
+    display: block;
+  }
+  .content{
+    padding: 10px;
+    .des{
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  .el-card{
+    border-width: 0;
+  }
+  .bottom{
+    .action{
+      float: right;
+    }
+  }
+  .time {
+    font-size: 13px;
+    color: #999;
+  }
+  .del-btn{
+    color: #FF4949;
+  }
+  .el-button+.el-button {
+    margin-left: 0;
+  }
+}
+.editor-form{
+  top:10px!important;
+  bottom: 10px;
+  margin-bottom: 0!important;
+  text-align: center;
+  .el-upload{
+    width: 100%;
+  }
+  .el-dialog__footer{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+.g-card{
+  text-align: left;
+  margin: 10px 0;
+  &.el-card {
+    box-shadow: none;
+    overflow-y: auto;
+  }
+  .el-card__header{
+    padding: 5px 10px;
+    .header{
+      display: flex;
+      align-items: center;
+      font{
+        size:16px;
+      }
+      span{
+        flex: 1;
+      }
+    }
+  }
+  .write-box{
+    .flex>div{
+      margin: 0 10px;
+    }
+    &>div{
+      padding: 10px 0;
+    }
+    &>div:not(:last-child){
+      border-bottom: 1px solid tint($border-color,30%);
+    }
+
+  }
+}
+.preview-img{
+  width: 100%;
+  display: block;
+}
+.del-feature{
+  display: inline-block;
+  text-decoration: none;
+  padding: 8px 6px;
+  font-size: 26px;
+  color: tint(#FF4949,30%);
+  &:hover,&:active{
+    color: #FF4949;
+  }
+}
+.template-info .el-card__body{
+  overflow-y: auto;
+  height: 150px;
+}
+.template-info{
+  &>div{
+    margin: 10px auto;
+  }
+  .t-state{
+    &>div:not(:last-child){
+      margin-right: 10px;
+    }
+  }
+}
+.factory-tabs.el-tabs{
+  display: block;
+}
